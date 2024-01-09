@@ -1,62 +1,66 @@
 # gnome-rust-base
 
-Um guia completo para iniciar projetos com GTK, Rust, Meson, e Flatpak no ambiente GNOME.
+A comprehensive guide for starting projects with GTK, Rust, Meson, and Flatpak in the GNOME environment, with a focus on implementing multiple language support.
 
-## Métodos de Construção
+## Building Methods
 
-### Usando Flatpak e GNOME Builder
+### Using Flatpak and GNOME Builder
 
-O gnome-rust-base pode ser compilado e executado facilmente através do [GNOME Builder](https://wiki.gnome.org/Apps/Builder).
+gnome-rust-base can be easily compiled and run using [GNOME Builder](https://wiki.gnome.org/Apps/Builder).
 
-### Usando flatpak-builder
+### Using flatpak-builder
 
 1. `flatpak-builder --user flatpak_app build-aux/org.gnome.Example.json`
 2. `flatpak-builder --env=LC_ALL=pt_BR.UTF8 --run flatpak_app build-aux/org.gnome.Example.json gnome-rust-base`
 
-### Método Manual
+### Manual Method
 
 1. `meson --prefix=/usr build-dir`
 2. `ninja -C build-dir`
 3. `ninja -C build-dir install`
 4. `gnome-rust-base`
 
-Para informações detalhadas sobre as dependências, consulte o [manifesto Flatpak](org.gnome.Example.json).
+For detailed information about dependencies, see the [Flatpak manifest](org.gnome.Example.json).
 
-## Implementando Suporte a Múltiplos Idiomas no GNOME Builder (Rust)
+## Implementing Multiple Language Support in GNOME Builder (Rust)
 
-### Configuração Inicial
+### Initial Setup
 
-1. **Criação do arquivo `.pot`:**
-   - Construa o projeto com Meson: `meson --prefix=/usr build-dir`
-   - Gere o arquivo `.pot`: `ninja -C build/ gnome-rust-base-pot`
-   - Será criado em `po/gnome-rust-base.pot`.
+1. **Creating the `.pot` File:**
+    - Build the project with Meson: `meson --prefix=/usr build-dir`
+    - Generate the `.pot` file: `ninja -C build/ gnome-rust-base-pot`
+    - The file will be created at `po/gnome-rust-base.pot`.
 
-### Preparando a UI para Tradução
+### Preparing the UI for Translation
 
-1. **Alteração do arquivo UI:**
-   - No arquivo `src/window.ui`, marque a propriedade a ser traduzida com `translatable=yes`.
-     - Exemplo: `<property name="label" translatable="yes">Hello, World!</property>`
-   - Atualize o arquivo `.pot`.
+1. **UI File Changes:**
+    - In `src/window.ui`, mark properties for translation with `translatable=yes`.
+      - Example: `<property name="label" translatable="yes">Hello, World!</property>`
+    - Update the `.pot` file.
 
-2. **Em caso de problemas:**
-   - Verifique se todos os comandos foram executados corretamente e se as alterações no arquivo UI estão corretas.
+2. **Troubleshooting:**
+    - Ensure all commands were executed correctly and that changes to the UI file are correct.
 
-3. **Regere o arquivo `.pot`:**
-   - Comando: `ninja -C build gnome-rust-base-pot`.
+3. **Regenerate the `.pot` File:**
+    - Command: `ninja -C build gnome-rust-base-pot`.
 
-### Processo de Tradução
+### Translation Process
 
-1. **Criação do arquivo de idioma:**
-   - Utilize `msginit` para gerar um arquivo de tradução para o idioma desejado.
-     - Exemplo: `msginit -l pt_BR --no-translator -i po/gnome-rust-base.pot -o po/pt_BR.po`
-   - Traduza o arquivo `po/pt_BR.po` com um editor de texto ou ferramenta especializada como gtranslator ou poedit.
+1. **Creating Language Files:**
+    - Use `msginit` to generate a translation file for the desired language.
+      - Example: `msginit -l pt_BR --no-translator -i po/gnome-rust-base.pot -o po/pt_BR.po`
+    - Translate the `po/pt_BR.po` file using a text editor or specialized tool like gtranslator or poedit.
 
-2. **Atualização do arquivo `LINGUAS`:**
-   - Adicione o novo código de idioma (exemplo: `pt_BR`) ao arquivo `po/LINGUAS` em ordem alfabética.
-   - Isso é essencial para o processo de compilação e instalação.
+2. **Updating the `LINGUAS` File:**
+    - Add the new language code (e.g., `pt_BR`) to the `po/LINGUAS` file in alphabetical order.
+    - This step is crucial for the compilation and installation process.
 
-### Conclusão e Testes
+### Conclusion and Testing
 
-- **Alterando o idioma do aplicativo:**
-  - O idioma do aplicativo corresponderá à variável `LANG` do sistema.
-  - Para testar em um idioma específico, defina a variável `LC_ALL`, por exemplo, `LC_ALL=pt_BR.UTF8 gnome-rust-base`.
+- **Changing the Application Language:**
+   - The application's language will match the system's `LANG` variable.
+   - To test in a specific language, set the `LC_ALL` variable, e.g., `LC_ALL=pt_BR.UTF8 gnome-rust-base`.
+
+---
+
+Special thanks to [Rafael Fontenelle](https://github.com/rffontenelle) for assisting in understanding how to implement multiple languages in GNOME.
