@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
+<cambalache-project version="0.13.1" target_tk="gtk-4.0">
+  <ui>
+	(2,1,"window.ui","window.ui",None,None,None,None,None,None,None)
+  </ui>
+  <ui_library>
+	(2,"Adw","1.0",None),
+	(2,"gtk","4.0",None)
+  </ui_library>
+  <object>
+	(2,1,"AdwApplicationWindow","GnomeRustBaseWindow",None,None,None,None,None,None),
+	(2,2,"AdwToolbarView",None,1,None,None,None,None,None),
+	(2,3,"AdwHeaderBar","header_bar",2,None,"top",None,None,None),
+	(2,4,"GtkMenuButton",None,3,None,"end",None,None,None),
+	(2,5,"GtkLabel","label",2,None,None,None,1,None),
+	(2,6,"(menu)","primary_menu",None,None,None,None,None,None),
+	(2,7,"(section)",None,6,None,None,None,None,None),
+	(2,8,"(item)",None,7,None,None,None,None,None),
+	(2,9,"(item)",None,7,None,None,None,1,None),
+	(2,10,"(item)",None,7,None,None,None,2,None)
+  </object>
+  <object_property>
+	(2,1,"AdwApplicationWindow","content",None,None,None,None,None,2,None,None,None,None),
+	(2,1,"GtkWindow","default-height","300",None,None,None,None,None,None,None,None,None),
+	(2,1,"GtkWindow","default-width","600",None,None,None,None,None,None,None,None,None),
+	(2,2,"AdwToolbarView","content",None,None,None,None,None,5,None,None,None,None),
+	(2,4,"GtkMenuButton","icon-name","open-menu-symbolic",None,None,None,None,None,None,None,None,None),
+	(2,4,"GtkMenuButton","menu-model","6",None,None,None,None,None,None,None,None,None),
+	(2,4,"GtkMenuButton","primary","True",None,None,None,None,None,None,None,None,None),
+	(2,4,"GtkWidget","tooltip-text","Menu","yes",None,None,None,None,None,None,None,None),
+	(2,5,"GtkLabel","label","Hello, World!",None,None,None,None,None,None,None,None,None),
+	(2,8,"(item)","action","app.preferences",None,None,None,None,None,None,None,None,None),
+	(2,8,"(item)","label","_Preferences","yes",None,None,None,None,None,None,None,None),
+	(2,9,"(item)","action","win.show-help-overlay",None,None,None,None,None,None,None,None,None),
+	(2,9,"(item)","label","_Keyboard Shortcuts","yes",None,None,None,None,None,None,None,None),
+	(2,10,"(item)","action","app.about",None,None,None,None,None,None,None,None,None),
+	(2,10,"(item)","label","_About Gnome-rust-base","yes",None,None,None,None,None,None,None,None)
+  </object_property>
+  <object_data>
+	(2,5,"GtkWidget",1,1,None,None,None,None,None,None),
+	(2,5,"GtkWidget",2,2,None,1,None,None,None,None)
+  </object_data>
+  <object_data_arg>
+	(2,5,"GtkWidget",2,2,"name","title-1")
+  </object_data_arg>
+</cambalache-project>
