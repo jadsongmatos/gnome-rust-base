@@ -1,5 +1,5 @@
 # Portuguese translations for gnome-rust-base package
-# Tradu��es em portugu�s brasileiro para o pacote gnome-rust-base.
+# Traduções em português brasileiro para o pacote gnome-rust-base.
 # Copyright (C) 2024 THE gnome-rust-base'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-rust-base package.
 # Automatically generated, 2024.
@@ -8,23 +8,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-rust-base\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-09 16:43-0300\n"
-"PO-Revision-Date: 2024-01-09 16:43-0300\n"
+"POT-Creation-Date: 2024-01-09 19:50-0300\n"
+"PO-Revision-Date: 2024-01-09 19:50-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: data/org.gnome.Example.desktop.in:3
 msgid "gnome-rust-base"
-msgstr ""
+msgstr "Gnome Rust Base"
 
 #: data/org.gnome.Example.metainfo.xml.in:7
 msgid "No description"
-msgstr ""
+msgstr "Sem descrição"
 
 #: src/window.ui:20
 msgid "Menu"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: src/window.ui:28
 msgid "Hello, World!"
-msgstr "Olá, Mundo!"
+msgstr ""
 
 #: src/window.ui:40
 msgid "_Preferences"

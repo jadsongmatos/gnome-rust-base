@@ -58,8 +58,8 @@ For detailed information about dependencies, see the [Flatpak manifest](org.gnom
 ### Conclusion and Testing
 
 - **Changing the Application Language:**
-   - The application's language will match the system's `LANG` variable.
-   - To test in a specific language, set the `LC_ALL` variable, e.g., `LC_ALL=pt_BR.UTF8 gnome-rust-base`.
+  - The application's language will match the system's `LANG` variable.
+  - To test in a specific language, set the `LC_ALL` variable, e.g., `LC_ALL=pt_BR.UTF8 gnome-rust-base`.
 
 ---
 

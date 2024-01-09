@@ -99,7 +99,7 @@ impl GnomeRustBaseApplication {
         let window = self.active_window().unwrap();
         let about = adw::AboutWindow::builder()
             .transient_for(&window)
-            .application_name("gnome-rust-base")
+            .application_name("Gnome Rust Base")
             .application_icon("org.gnome.Example")
             .developer_name("jadson")
             .version(VERSION)
