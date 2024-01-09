@@ -1,82 +1,62 @@
 # gnome-rust-base
 
-Um modelo padrão para começar com GTK, Rust, Meson, Flatpak feito para GNOME.
+Um guia completo para iniciar projetos com GTK, Rust, Meson, e Flatpak no ambiente GNOME.
 
-## Índice
+## Métodos de Construção
 
-- [Introdução](#introdução)
-- [Pré-Requisitos](#pré-requisitos)
-- [Construção](#construção)
-  - [Com Flatpak + GNOME Builder](#com-flatpak--gnome-builder)
-  - [Com flatpak-builder](#com-flatpak-builder)
-  - [Manualmente](#manualmente)
-- [Adicionando Suporte Multilíngue](#adicionando-suporte-multilíngue)
-  - [Configuração Inicial](#configuração-inicial)
-  - [Vinculando Texto da UI para Tradução](#vinculando-texto-da-ui-para-tradução)
-  - [Processo de Tradução](#processo-de-tradução)
-  - [Etapas Finais](#etapas-finais)
-- [Solução de Problemas](#solução-de-problemas)
-- [Contribuição](#contribuição)
-- [Suporte e Contato](#suporte-e-contato)
-- [Licença](#licença)
-- [Changelog](#changelog)
+### Usando Flatpak e GNOME Builder
 
+O gnome-rust-base pode ser compilado e executado facilmente através do [GNOME Builder](https://wiki.gnome.org/Apps/Builder).
 
-## Building
-
-### Construindo com Flatpak + GNOME Builder
-
-O gnome-rust-base pode ser compilado e executado com o [GNOME Builder](https://wiki.gnome.org/Apps/Builder).
-
-### Construindo com flatpak-builder
+### Usando flatpak-builder
 
 1. `flatpak-builder --user flatpak_app build-aux/org.gnome.Example.json`
 2. `flatpak-builder --env=LC_ALL=pt_BR.UTF8 --run flatpak_app build-aux/org.gnome.Example.json gnome-rust-base`
 
-### Construindo manualmente
+### Método Manual
 
 1. `meson --prefix=/usr build-dir`
 2. `ninja -C build-dir`
 3. `ninja -C build-dir install`
 4. `gnome-rust-base`
 
-Para saber mais sobre as dependências necessárias, verifique o [manifesto Flatpak](org.gnome.Example.json).
+Para informações detalhadas sobre as dependências, consulte o [manifesto Flatpak](org.gnome.Example.json).
 
-## Adicionando suporte multilíngue no projeto GNOME Builder (Rust)
+## Implementando Suporte a Múltiplos Idiomas no GNOME Builder (Rust)
 
-### Configuração inicial
+### Configuração Inicial
 
-1. **Gerar arquivo `.pot`:**
-    - Use Meson para construir o projeto: `meson --prefix=/usr build-dir`
-    - Gere o arquivo `.pot`: `ninja -C build/ gnome-rust-base-pot`
-    - Isso cria `po/gnome-rust-base.pot`.
+1. **Criação do arquivo `.pot`:**
+   - Construa o projeto com Meson: `meson --prefix=/usr build-dir`
+   - Gere o arquivo `.pot`: `ninja -C build/ gnome-rust-base-pot`
+   - Será criado em `po/gnome-rust-base.pot`.
 
-### Vinculando texto da UI para tradução
+### Preparando a UI para Tradução
 
-1. **Modificar arquivo UI:**
-    - No arquivo `src/window.ui`, adicione `translatable=yes` à propriedade que vai ser traduzida.
-      - Exemplo: `<property name="label" translatable="yes" >Hello, World!</property>`
-    - Atualize o arquivo `.pot` novamente.
+1. **Alteração do arquivo UI:**
+   - No arquivo `src/window.ui`, marque a propriedade a ser traduzida com `translatable=yes`.
+     - Exemplo: `<property name="label" translatable="yes">Hello, World!</property>`
+   - Atualize o arquivo `.pot`.
 
-2. **Solução de problemas:**
-    - Se o arquivo `.pot` não for criado, certifique-se de estar usando os comandos corretos e de ter feito as alterações necessárias no arquivo UI.
+2. **Em caso de problemas:**
+   - Verifique se todos os comandos foram executados corretamente e se as alterações no arquivo UI estão corretas.
 
-3. **Gere o arquivo `.pot` novamente:**
-    - Comando: `ninja -C build gnome-rust-base-pot`.
+3. **Regere o arquivo `.pot`:**
+   - Comando: `ninja -C build gnome-rust-base-pot`.
 
-### Processo de tradução
+### Processo de Tradução
 
-1. **Criar arquivo de idioma:**
-    - Use `msginit` para criar um arquivo de tradução para o seu idioma de destino.
-      - Exemplo: `msginit -l pt_BR --no-translator -i po/gnome-rust-base.pot -o po/pt_BR.po`
-    - Traduza o arquivo `po/pt_BR.po` usando um editor de texto ou uma ferramenta especializada como gtranslator ou poedit.
+1. **Criação do arquivo de idioma:**
+   - Utilize `msginit` para gerar um arquivo de tradução para o idioma desejado.
+     - Exemplo: `msginit -l pt_BR --no-translator -i po/gnome-rust-base.pot -o po/pt_BR.po`
+   - Traduza o arquivo `po/pt_BR.po` com um editor de texto ou ferramenta especializada como gtranslator ou poedit.
 
-2. **Atualizar arquivo `LINGUAS`:**
-    - Adicione o novo código do idioma (por exemplo, `pt_BR`) ao arquivo `po/LINGUAS` em ordem alfabética.
-    - Isto é importante para o script de compilação e instalação.
+2. **Atualização do arquivo `LINGUAS`:**
+   - Adicione o novo código de idioma (exemplo: `pt_BR`) ao arquivo `po/LINGUAS` em ordem alfabética.
+   - Isso é essencial para o processo de compilação e instalação.
 
-### Etapas Finais
+### Conclusão e Testes
 
-- **Troca de idioma no aplicativo:**
-  - A aplicação será exibida no idioma definido pela variável `LANG` do sistema.
-  - Você pode forçar um idioma diferente definindo a variável `LC_ALL`, por exemplo, `LC_ALL=pt_BR.UTF8 your-program`.
+- **Alterando o idioma do aplicativo:**
+  - O idioma do aplicativo corresponderá à variável `LANG` do sistema.
+  - Para testar em um idioma específico, defina a variável `LC_ALL`, por exemplo, `LC_ALL=pt_BR.UTF8 gnome-rust-base`.
