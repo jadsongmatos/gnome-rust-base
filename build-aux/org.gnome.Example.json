@@ -40,10 +40,10 @@
             "name" : "gnome-rust-base",
             "builddir" : true,
             "buildsystem" : "meson",
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "file:///home/jadson/RustroverProjects/gnome-rust-base/"
+                    "type": "dir",
+                    "path": "../"
                 }
             ]
         }

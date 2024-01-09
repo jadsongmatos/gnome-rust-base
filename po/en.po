@@ -1,21 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Portuguese translations for gnome-rust-base package
+# Tradu��es em portugu�s brasileiro para o pacote gnome-rust-base.
+# Copyright (C) 2024 THE gnome-rust-base'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-rust-base package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Automatically generated, 2024.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-rust-base\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-09 17:01-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2024-01-09 16:43-0300\n"
+"PO-Revision-Date: 2024-01-09 16:43-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: data/org.gnome.Example.desktop.in:3
 msgid "gnome-rust-base"
